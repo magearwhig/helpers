@@ -13,13 +13,7 @@
         <script src="../add.js"></script>
         <script>
             mocha.setup({
-                ui: 'bdd',
-                // Detecting for leaks is expensive and disabling this feature
-                // speeds up the tests. Since we are currently putting all of our
-                // code on window, this doesn't work for us.
-                ignoreLeaks: true,
-                // If we do care about globals, whitelist a few of them.
-                globals: ['top', 'okGlobal1', '_fields']
+                ui: 'bdd'
             });
         </script>
         <script src="add_spec.js"></script>
