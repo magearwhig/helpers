@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Unit Tests</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" href="mocha.css" />
+    </head>
+    <body>
+        <div id="mocha"></div>
+        <script src="mocha.js"></script>
+        <script src="/testem.js"></script>
+        <script src="expect.js"></script>
+        <script src="../add.js"></script>
+        <script>
+            mocha.setup({
+                ui: 'bdd',
+                // Detecting for leaks is expensive and disabling this feature
+                // speeds up the tests. Since we are currently putting all of our
+                // code on window, this doesn't work for us.
+                ignoreLeaks: true,
+                // If we do care about globals, whitelist a few of them.
+                globals: ['top', 'okGlobal1', '_fields']
+            });
+        </script>
+        <script src="add_spec.js"></script>
+        <script>mocha.run();</script>
+    </body>
+</html>
